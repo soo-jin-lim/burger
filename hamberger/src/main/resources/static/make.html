@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>make study</title>
+</head>
+
+<body>
+<form class="form-inline" id="searchForm">
+    <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </button>
+</form>
+<a href="make.html" class="order_online">
+    Make study
+</a>
+
+<script>
+    // Make study를 클릭했을 때의 이벤트를 처리합니다.
+    document.querySelector(".order_online").addEventListener("click", function (event) {
+        event.preventDefault(); // 링크의 기본 동작을 막습니다.
+        window.location.href = "make.html"; // 이동할 페이지 경로로 수정하세요.
+    });
+
+    document.getElementById("searchForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // 폼의 기본 동작을 막습니다.
+        // 여기에 검색 동작을 추가할 수 있습니다.
+    });
+</script>
+</body>
+
+</html>
