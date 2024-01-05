@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+      lang="en">
+
+
+
+    <div class="container-fluid mt-3" layout:fragment="content">
+
+<!-- book section -->
+<section class="book_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                Make Study
+            </h2>
+        </div>
+<!--        <h2>[[${msg}]]</h2>-->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form_container">
+                    <form action="/study/makeRegister" method="post">
+                        <div>
+                            <input type="text" class="form-control" placeholder="Study name" name="studyName" />
+                        </div>
+                        <div>
+                            <input type="number" class="form-control" placeholder="Phone Number" name="phoneNumber" />
+                        </div>
+                        <div>
+                            <input type="email" class="form-control" placeholder="Your Email" name="email"/>
+                        </div>
+                        <div>
+                            <textarea name="intro" rows="5" class="form-control" placeholder="스터디 소개"></textarea>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" placeholder="Your Post" name="post"/>
+                        </div>
+                        <div>
+                            <input type="number" class="form-control" placeholder="How many persons?" name="persons"/>
+                        </div>
+                        <div>
+                            <select class="form-control nice-select wide" name="progressMethod">
+                                <option value="" disabled selected>
+                                    진행방식
+                                </option>
+                                <option value="on-line">
+                                    on-line
+                                </option>
+                                <option value="off-line">
+                                    off-line
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="number" class="form-control" placeholder="마감일" name="closeDate"/>
+                        </div>
+                        <div class="btn_box" >
+                            <button type="submit">Make Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+</div>
+<!-- end book section -->
+
+
+<script layout:fragment="script" th:inline="javascript">
+    var msg=[[${msg}]]
+    function msgdisplay(){
+        if(msg!=null) {
+
+            alert(msg);
+        }
+    }
+    msgdisplay();
+</script>
+<!--<script>-->
+
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     document.querySelector(".btn_box button").addEventListener("click", function (event) {
+    //         event.preventDefault();
+    //         validateForm(); // 폼 유효성 검사 함수 호출
+    //     });
+
+    //     function validateForm() {
+    //         var studyName = document.querySelector(".form_container input[placeholder='Study name']").value;
+    //         var phoneNumber = document.querySelector(".form_container input[placeholder='Phone Number']").value;
+    //         var email = document.querySelector(".form_container input[placeholder='Your Email']").value;
+    //         var post = document.querySelector(".form_container input[placeholder='Your Post']").value;
+    //         var persons = document.querySelector(".form_container input[placeholder='How many persons?']").value;
+    //         // var progressMethod = document.querySelector(".form_container .nice-select").value;
+    //         var closeDate = document.querySelector(".form_container input[placeholder='close date']").value;
+    //
+    //         var home = document.querySelector("form");
+    //
+    //         if (studyName === "" || phoneNumber === "" || email === "" || post === "" || persons === "" ||  closeDate === "") {
+    //             alert("비워져 있는 칸이 있습니다. 정보를 전부 입력하세요.");
+    //         } else {
+    //             alert("스터디 생성 완료");
+    //
+    //             // 여기에 스터디 생성 로직 추가
+    //         }
+    //     }
+    // });
+<!--</script>-->

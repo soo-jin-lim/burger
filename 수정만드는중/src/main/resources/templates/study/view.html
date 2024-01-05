@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+      lang="en">
+
+
+
+<div class="container-fluid mt-3" layout:fragment="content">
+
+    <!-- book section -->
+    <section class="book_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Make Study
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form_container">
+<!--                        <form >-->
+                            <div>
+                                <input type="text" class="form-control"  name="studyName" th:value="${makedto.studyName}" />
+                            </div>
+                            <div>
+                                <input type="number" class="form-control"  name="phoneNumber" th:value="${makedto.phoneNumber}" />
+                            </div>
+                            <div>
+                                <input type="email" class="form-control"name="email" th:value="${makedto.email}"/>
+                            </div>
+                            <div>
+                                <textarea name="intro" rows="5" class="form-control" >[[${makedto.intro}]]</textarea>
+                            </div>
+                            <div>
+                                <input type="text" class="form-control"  name="post" th:value="${makedto.post}"/>
+                            </div>
+                            <div>
+                                <input type="number" class="form-control"  name="persons" th:value="${makedto.persons}"/>
+                            </div>
+                            <div>
+                                <input type="text" class="form-control"  name="progressMethod" th:value="${makedto.progressMethod}"/>
+
+<!--                                <select class="form-control nice-select wide" name="progressMethod" th:value="${makedto.progressMethod}">-->
+<!--                                    <option value="" disabled selected>-->
+<!--                                        진행방식-->
+<!--                                    </option>-->
+<!--                                    <option value="on-line">-->
+<!--                                        on-line-->
+<!--                                    </option>-->
+<!--                                    <option value="off-line">-->
+<!--                                        off-line-->
+<!--                                    </option>-->
+<!--                                </select>-->
+                            </div>
+                            <div>
+                                <input type="number" class="form-control" placeholder="마감일" name="closeDate" th:value="${makedto.closeDate}"/>
+                            </div>
+                            <div class="btn_box" >
+
+                                    <button type="button" id="modify">수정</button>
+
+                                    <button type="button" id="remove">삭제</button>
+
+                            </div>
+<!--                        </form>-->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+<!-- end book section -->
+
+
+<script layout:fragment="script" th:inline="javascript">
+   document.querySelector("#remove").addEventListener("click",function (e){
+       alert("AAAAA")
+       e.defaultPrevented
+       self.location="/study/remove?sid="+[[${makedto.sid}]]
+   })
+
+   document.querySelector("#modify").addEventListener("click",function (e){
+       alert("AAAAA")
+       e.defaultPrevented
+       self.location="/study/modify?sid="+[[${makedto.sid}]]
+   })
+</script>
+
